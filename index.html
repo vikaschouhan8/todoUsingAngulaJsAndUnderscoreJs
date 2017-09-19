@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="todoApp">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+        <script src="todo.js"></script>
+        <link rel="stylesheet" href="todo.css">
+    </head>
+    <body>
+        <h2>Todo</h2>
+        <div ng-controller="TodoListController as todoList">
+            <span>Total todos {{todoList.todoTotal()}}</span>
+            <ul>
+                <li ng-repeat="list in todoList.todos">
+                    <input type="checkbox" ng-model="list.done">
+                    <span class="done-{{list.done}}">{{list.text}}</span>
+                </li>
+            </ul>
+            <form>
+                <input type="text" ng-model="todoList.formInput" ng-model-instant>
+                <button ng-click="todoList.addTodo()">add</button>
+                {{todoList.formInput}}
+            </form>
+            <button ng-click="todoList.deleteTodo()">Delete Completed</button>
+        </div>
+    </body>
+</html>
