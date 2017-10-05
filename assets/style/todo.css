@@ -1,0 +1,95 @@
+.done-true {
+    text-decoration: line-through;
+    color: grey;
+}
+
+.toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
+    color: white; 
+}
+.links{
+    padding: 0;
+    margin: 0;
+}
+.links li a{
+    color:#666;
+    text-decoration: none;
+    display: block;
+    padding: 15px 0 15px 15px;
+    border-bottom: 1px solid lightgray;
+}
+.links li a:hover{
+    background: lightblue;
+}
+.links li a i{
+    padding: 0 25px 0 0;
+}
+.links li a b{
+    float: right;
+}
+.sideIcon{
+     float:right;
+}
+.sidebar{
+    background:#fff; height:574px
+    }
+.content{
+    padding:0
+}
+.bottomSheetdemoBasicUsage .md-inline-list-icon-label {
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: -10px;
+    height: 24px;
+    vertical-align: middle; }
+  
+  .bottomSheetdemoBasicUsage .md-grid-item-content {
+    height: 90px;
+    padding-top: 10px; }
+  
+  .bottomSheetdemoBasicUsage .md-grid-item-content md-icon {
+    height: 48px;
+    width: 48px; }
+  
+  .bottomSheetdemoBasicUsage .md-grid-text {
+    padding-bottom: 5px; }
+  
+  .bottomSheetdemoBasicUsage md-list-item, .bottomSheetdemoBasicUsage md-list-item .md-list-item-inner {
+    min-height: 48px; }
+  
+  .bottomSheetdemoBasicUsage h2 {
+    line-height: 36px;
+    padding-top: 10px; }
+  
+  .bottomSheetdemoBasicUsage .md-subheader .md-subheader-inner {
+    padding: 0; }
+  
+  .bottomSheetdemoBasicUsage md-toast .md-toast-content {
+    background-color: #B14141; }
+  
+  .bottomSheetdemoBasicUsage md-toast > * {
+    font-weight: bolder; }
+
+    .status-line-red {
+        border-left: 5px solid red;
+    }
+    
+    .status-line-green {
+        border-left: 5px solid green;
+    }
+    .fontFamily{
+        font-family: Roboto,Helvetica Neue,sans-serif;
+    }
+
+    .bottomSheet{
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+
+    .menudemoBasicUsage .md-menu-demo {
+        padding: 24px; }
+      
+      .menudemoBasicUsage .menu-demo-container {
+        min-height: 200px; }
+    

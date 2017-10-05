@@ -1,27 +1,146 @@
 <!doctype html>
 <html ng-app="todoApp">
     <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-        <script src="todo.js"></script>
-        <link rel="stylesheet" href="todo.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Angular Material style sheet -->
+        <link rel="stylesheet" href="assets/css/angular-material.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.0-rc4/angular-material.css">
+        
+        <!-- icon -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css">
+
+        <!-- material-design-iconic-font -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css">
+        
+        <!-- Leaflet css -->
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css">
+
+        <!-- custom scroll bar -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.js"></script>
+        <script src="app/js/angular.min.js"></script>
+        <script src="app/js/angular-animate.min.js"></script>
+        <script src="app/js/angular-aria.min.js"></script>
+        <!-- enterprize -->
+        <script src="app/js/ag-grid-enterprise.js"></script>
+       
+        <!-- Leaflet js -->
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
+        <script src="https://cdn.bootcss.com/angular-leaflet-directive/0.9.1/angular-leaflet-directive_dev_mapped.js"></script>
+        <script src="http://tombatossals.github.io/angular-leaflet-directive/dist/angular-leaflet-directive.min.js"></script>
+        
+        <!-- angular leaflet script -->
+        <script src="app/js/angular-leaflet-directive.min.js"></script>
+        
+        <!-- underscoreJs -->
+        <script src="app/js/underscore-min.js"></script>
+        
+        <!-- Angular Material Library -->
+        <script src="app/js/angular-material.min.js"></script>
+
+        <!--UI-router-->
+        <script src="app/js/angular-ui-router.min.js"></script>
+       
+        <!-- icon -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.1/angular-material-icons.min.js"></script>
+        <!-- controller -->
+        <script src="app/mainController/app.js"></script>
+        <script src="app/todo/controller/todoController.js"></script>  
+        <script src="app/map/controller/mapController.js"></script>  
+        <script src="app/agGrid/controller/agGridController.js"></script>
+        <script src="app/bottomSheet/controller/bottomSheetController.js"></script>        
+        <link rel="stylesheet" href="assets/style/todo.css">
     </head>
-    <body>
-        <h2>Todo</h2>
-        <div ng-controller="TodoListController as todoList">
-            <span>Total todos {{todoList.todoTotal()}}</span>
-            <ul>
-                <li ng-repeat="list in todoList.todos">
-                    <input type="checkbox" ng-model="list.done">
-                    <span class="done-{{list.done}}">{{list.text}}</span>
-                </li>
-            </ul>
-            <form>
-                <input type="text" ng-model="todoList.formInput" ng-model-instant>
-                <button ng-click="todoList.addTodo()">add</button>
-                {{todoList.formInput}}
-            </form>
-            <button ng-click="todoList.deleteTodo()">Delete Completed</button>
+    <body ng-controller="sideNavController">
+        <!-- side nav -->
+        <div layout="column" ng-cloak ng-init="hide = false">
+                
+                <section layout="row" flex>
+                
+                    <md-sidenav ng-hide="hide"
+                        class="md-sidenav-left"
+                        md-component-id="left"
+                        md-is-locked-open="$mdMedia('gt-md')"
+                        md-whiteframe="4">
+                
+                        <md-toolbar class="md-theme-indigo">
+                            <div layout="row" layout-wrap>
+                                <div flex="5" class="md-toolbar-tools">
+                                    <i class="zmdi zmdi-bike"></i>
+                                </div>
+                                <div flex class="md-toolbar-tools">
+                                        Sidenav Left
+                                </div>
+                                <div flex="20" class="md-toolbar-tools" ng-click="sideNavToggle();hide = !hide">
+                                    <md-button class="md-icon-button" aria-label="Settings">
+                                        <i class="zmdi zmdi-chevron-left zmdi-hc-2x"></i>
+                                    </md-button>
+                                </div>  
+                            </div>
+                        </md-toolbar>
+                        <!-- mCustomScrollbar _mCS_2" id="Myscroll" data-mcs-theme="inset-2-dark" -->
+                        <md-content>
+                            <ul class="links sidebar content mCustomScrollbar _mCS_2" id="Myscroll" data-mcs-theme="inset-2-dark">
+                                <li><a ui-sref="map"><i class="zmdi zmdi-pin"></i>Leftlet Map <b>></b></a></li>
+                                <li><a ui-sref="todo"><i class="zmdi zmdi-view-comfy"></i>todo<b>></b></a></li>
+                                <li><a ui-sref="agGrid"><i class="zmdi zmdi-menu"></i>agGrid<b>></b></a></li>                        
+                                <li><a ui-sref="blank"><i class="zmdi zmdi-flower"></i>blank<b>></b></a></li>                        
+                                <li><a ui-sref="blank"><i class="zmdi zmdi-blur"></i>blank<b>></b></a></li>                        
+                                <li><a ui-sref="blank"><i class="zmdi zmdi-loupe"></i>blank<b>></b></a></li>                                                        
+                                <li><a ui-sref="blank"><i class="zmdi zmdi-flower"></i>blank<b>></b></a></li>                        
+                                <li><a ui-sref="blank"><i class="zmdi zmdi-blur"></i>blank<b>></b></a></li>                        
+                                <li><a ui-sref="blank"><i class="zmdi zmdi-loupe"></i>blank<b>></b></a></li>                                                        
+                                <li><a ui-sref="blank"><i class="zmdi zmdi-arrow-left"></i>blank<b>></b></a></li>                        
+                                <li><a ui-sref="blank"><i class="zmdi zmdi-flower"></i>blank<b>></b></a></li>                        
+                                <li><a ui-sref="blank"><i class="zmdi zmdi-blur"></i>blank<b>></b></a></li>                        
+                                <li><a ui-sref="blank"><i class="zmdi zmdi-loupe"></i>blank<b>></b></a></li>                                                        
+                                <li><a ui-sref="blank"><i class="zmdi zmdi-arrow-left"></i>blank<b>></b></a></li>                        
+                            
+                                <li><a ui-sref="blank"><i class="zmdi zmdi-arrow-left"></i>blank<b>></b></a></li>                        
+                            </ul>   
+                        </md-content>
+                    </md-sidenav>
+                
+                    <md-content flex >
+                
+                        <div layout="column" layout-align="top center">
+                            <!-- toolbar -->
+                            <md-toolbar class="md-hue-2">
+                                <div class="md-toolbar-tools">
+                                    <md-button class="md-icon-button" aria-label="Settings" ng-click="hide = !hide" ng-hide="hide == false">
+                                            <i class="zmdi zmdi-chevron-left zmdi-hc-2x"></i>
+                                    </md-button>
+                            
+                                    <h2 flex md-truncate>Leaflet and agGrid</h2>
+                            
+                                    <md-button class="md-icon-button" aria-label="Favorite">
+                                        <i class="zmdi zmdi-ungroup zmdi-hc-2x"></i>
+                                    </md-button>
+                            
+                                    <md-button class="md-icon-button" aria-label="More">
+                                        <i class="zmdi zmdi-accounts-alt zmdi-hc-2x"></i>
+                                    </md-button>
+                                </div>
+                            </md-toolbar>
+                            <!-- /toolbar -->
+                        </div>
+                        
+                            <div>
+                                <ui-view></ui-view>
+                            </div>
+                        <!-- <md-button class="md-primary md-raised" ng-click="showGridBottomSheet()">Show as Grid</md-button> -->
+                    </md-content>
+                    
+            </section>
+                
         </div>
+
+        <!-- /side nav -->
+
+        
     </body>
 </html>
+

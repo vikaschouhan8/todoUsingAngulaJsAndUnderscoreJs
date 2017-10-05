@@ -1,0 +1,92 @@
+<style>
+    .dialogdemoBasicUsage #popupContainer {
+    position: relative; }
+
+    .dialogdemoBasicUsage .footer {
+    width: 100%;
+    text-align: center;
+    margin-left: 20px; }
+
+    .dialogdemoBasicUsage .footer, .dialogdemoBasicUsage .footer > code {
+    font-size: 0.8em;
+    margin-top: 50px; }
+
+    .dialogdemoBasicUsage button {
+    width: 200px; }
+
+    .dialogdemoBasicUsage div#status {
+    color: #c60008; }
+
+    .dialogdemoBasicUsage .dialog-demo-prerendered md-checkbox {
+    margin-bottom: 0; }
+
+        .angular-leaflet-control-layers {
+            position: absolute;
+            background: white;
+            z-index: 100;
+            left: 10px;
+            top: 100px;
+            width: 200px;
+            box-shadow: 1px 1px 5px #333;
+            padding: 5px;
+        }
+
+        .angular-leaflet-control-layers .lf-row label {
+            cursor: pointer;
+            width: 75%;
+        }
+
+        .angular-leaflet-control-layers .lf-row .lf-icon-ol {
+            padding-left: 8px;
+        }
+
+        .angular-leaflet-control-layers .lf-row .lf-icon {
+            cursor: pointer;
+            float: left;
+            margin-right: 5px;
+            padding-top: 2px;
+        }
+
+        .angular-leaflet-control-layers .lf-row label .lf-text {
+            float: left;
+        }
+
+        .angular-leaflet-control-layers .lf-row .lf-icon-ol-group {
+            color: #00650a;
+        }
+
+        .angular-leaflet-control-layers .lf-row .lf-icons {
+            float: right;
+        }
+    
+</style>
+
+<div style="height:48px; padding-top:20px; color:#666" layout="row">
+  
+    <div flex="30" style="margin-left:10px">
+        User Managment
+    </div>
+    <div flex="45">
+    </div>
+    <div flex="5">
+        <i class="zmdi zmdi-cloud-upload "></i>
+    </div>
+    <div flex="5">
+        <i class="zmdi zmdi-plus-circle-o "></i>
+    </div>
+    <div flex="5">
+        <i class="zmdi zmdi-print "></i>
+    </div>
+    <div flex="5">
+        <i class="zmdi zmdi-download "></i>
+    </div>
+    <div flex="5">
+        <i class="zmdi zmdi-search "></i>
+    </div>
+</div>
+<div class="mCustomScrollbar _mCS_2 check" id="Myscroll" data-mcs-theme="inset-2-dark">
+    <div id="gridDiv" ag-grid="gridOptions" class="ag-theme-material " style="height: calc(100vh - 115px);"></div>
+    <!-- <div style="position: absolute; top: 0; left: 0;"> -->
+        <button ng-click="removeSelected()">Remove Selected</button>
+    <!-- </div> -->
+</div>
